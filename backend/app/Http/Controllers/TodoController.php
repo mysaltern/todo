@@ -36,5 +36,26 @@ class TodoController extends Controller
         return response()->json($newTodo);
     }
 
- 
+    public function destroy($id)
+    {
+        // Get the current todos from the cache
+        $todos = Cache::get($this->cacheKey, []);
+    
+        // Check if the todo with the given ID exists
+        $todoExists = collect($todos)->firstWhere('id', $id);
+    
+        if (!$todoExists) {
+            return response()->json(['error' => 'Todo not found'], 404);
+        }
+    
+        // Filter out the todo with the given ID
+        $filteredTodos = array_filter($todos, fn($todo) => $todo['id'] !== $id);
+    
+        // Update the cache
+        Cache::put($this->cacheKey, array_values($filteredTodos));
+    
+        return response()->json(['message' => 'Todo deleted']);
+    }
+    
+    
 }
