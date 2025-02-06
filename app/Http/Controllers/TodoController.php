@@ -17,24 +17,25 @@ class TodoController extends Controller
     public function store(Request $request)
     {
         $title = $request->input('title');
-
+    
         if (!$title) {
             return response()->json(['error' => 'Title is required'], 400);
         }
-
+    
         $newTodo = [
             'id' => uniqid(),
             'title' => $title,
             'completed' => false,
         ];
-
+    
         $todos = Cache::get($this->cacheKey, []);
         $todos[] = $newTodo;
-
+    
         Cache::put($this->cacheKey, $todos);
-
-        return response()->json($newTodo);
+    
+        return response()->json($newTodo, 201);
     }
+    
 
     public function destroy($id)
     {
