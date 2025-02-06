@@ -117,6 +117,11 @@ You can customize Redis settings in the `.env` file as needed.
   npm run dev
   ```
 
+- **Run tests:**
+  ```bash
+  php artisan test
+  ```
+
 ---
 
 ## Environment Variables
@@ -133,7 +138,6 @@ Below are some important environment variables and their descriptions:
 | QUEUE_CONNECTION    | Queue connection (Redis used here)         | redis                |
 | SESSION_DRIVER      | Session storage driver                     | redis                |
 | CACHE_STORE         | Cache store driver                         | redis                |
-
 
 ---
 
@@ -153,6 +157,4 @@ Below are some important environment variables and their descriptions:
 ```
 
 ---
-
-
 
