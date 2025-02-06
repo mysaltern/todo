@@ -80,23 +80,6 @@ You can customize Redis settings in the `.env` file as needed.
 
 ---
 
-## Development Tools
-- **Laravel Sail:** A local development environment built using Docker.
-  ```bash
-  ./vendor/bin/sail up
-  ```
-- **Laravel Pint:** For linting and code styling.
-  ```bash
-  ./vendor/bin/pint
-  ```
-- **Pest PHP:** For unit and feature tests.
-  ```bash
-  ./vendor/bin/pest
-  ```
-- **Laravel Tinker:** A REPL environment for exploring and interacting with the application.
-  ```bash
-  php artisan tinker
-  ```
 
 ---
 
